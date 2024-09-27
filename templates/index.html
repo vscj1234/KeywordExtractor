@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Keyword Extractor</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #4CAF50;
+    }
+
+    #fileInput {
+      display: block;
+      margin: 20px auto;
+      padding: 10px;
+      border: 2px solid #4CAF50;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+
+    #uploadBtn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #uploadBtn:hover {
+      background-color: #45a049; /* Darker green on hover */
+    }
+
+    #keywordsContainer {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    ul {
+      list-style-type: none; /* Remove bullet points */
+      padding-left: 0; /* Remove default padding */
+    }
+
+    li {
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #e7f3fe; /* Light blue background */
+      border-left: 5px solid #2196F3; /* Blue left border */
+    }
+    
+    li:nth-child(even) {
+        background-color: #f0f8ff; /* Slightly different color for even items */
+    }
+    
+    @media (max-width: 600px) {
+        body {
+            padding: 10px; /* Reduce padding on smaller screens */
+        }
+
+        #uploadBtn {
+            width: 100%; /* Full width button on small screens */
+        }
+        
+        #fileInput {
+            width: calc(100% - 22px); /* Full width input on small screens */
+        }
+    }
+    
+  </style>
+</head>
+<body>
+    <h1>Keyword Extractor</h1>
+    <div class="container">
+        <h1>Upload Files</h1>
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" id="fileInput" name="files" multiple required>
+            <button type="submit" id="uploadBtn">Upload</button>
+            <div id="keywordsContainer">
+                <h2>Extracted Keywords:</h2>
+                <ul id="keywordsList"></ul>
+              </div>
+        </form>
+    </div>
+</body>
+</html>
